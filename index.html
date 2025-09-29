@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mi Web Clara</title>
+  <title>Mi Web Clara con Menú</title>
   <style>
     body {
       margin: 0;
@@ -18,6 +18,7 @@
       padding: 1rem;
       display: flex;
       align-items: center;
+      justify-content: space-between;
       border-bottom: 1px solid #1565c0;
       color: white;
     }
@@ -29,7 +30,51 @@
 
     header h1 {
       margin: 0;
-      font-size: 2rem;
+      font-size: 1.8rem;
+    }
+
+    nav {
+      margin-left: auto;
+    }
+
+    ul.menu {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    ul.menu li {
+      position: relative;
+    }
+
+    ul.menu > li {
+      margin-left: 1rem;
+    }
+
+    ul.menu a {
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem;
+      display: block;
+    }
+
+    ul.menu li:hover > ul {
+      display: block;
+    }
+
+    ul.menu ul {
+      display: none;
+      position: absolute;
+      background-color: #1976d2;
+      top: 100%;
+      left: 0;
+      min-width: 150px;
+      z-index: 1000;
+    }
+
+    ul.menu ul li {
+      margin: 0;
     }
 
     main {
@@ -58,14 +103,29 @@
 </head>
 <body>
   <header>
-    logo.png
-    <h1>Biodiversidad del Campus Fuentenueva</h1>
+    <div style="display: flex; align-items: center;">
+      logo.png
+      <h1>Biodiversidad del Campus Fuentenueva</h1>
+    </div>
+    <nav>
+      <ul class="menu">
+        <li>#Inicio</a></li>
+        <li>
+          #Secciones</a>
+          <ul>
+            <li>#Galería</a></li>
+            <li>#Proyectos</a></li>
+            <li>#Contacto</a></li>
+          </ul>
+        </li>
+        <li>#Acerca de</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main>
-    <p>Esta es una plantilla con diseño claro y una banda superior azul para el título.</p>
-    <p>Puedes personalizar el contenido, los colores y el estilo según tus necesidades.</p>
-    <p>Visita https://github.comGitHub</a> para más información.</p>
+    <p>Esta es una plantilla con diseño claro, banda azul superior, logo a la izquierda y menú desplegable horizontal.</p>
+    <p>Puedes personalizar los enlaces del menú y el contenido según tus necesidades.</p>
   </main>
 
   <footer>
