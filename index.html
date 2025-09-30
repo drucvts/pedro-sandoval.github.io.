@@ -12,7 +12,6 @@
       color: #333;
       line-height: 1.6;
     }
-
     header {
       background-color: #1976d2;
       padding: 1rem;
@@ -22,113 +21,98 @@
       border-bottom: 1px solid #1565c0;
       color: white;
     }
-
-    header img {
-      height: 40px;
-      margin-right: 1rem;
-    }
-
     header h1 {
       margin: 0;
-      font-size: 1.8rem;
+      font-size: 1.3rem;
     }
-
     nav {
       margin-left: auto;
     }
-
-    ul.menu {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-    }
-
-    ul.menu li {
-      position: relative;
-    }
-
-    ul.menu > li {
-      margin-left: 1rem;
-    }
-
-    ul.menu a {
-      color: white;
-      text-decoration: none;
-      padding: 0.5rem;
-      display: block;
-    }
-
-    ul.menu li:hover > ul {
-      display: block;
-    }
-
-    ul.menu ul {
-      display: none;
-      position: absolute;
-      background-color: #1976d2;
-      top: 100%;
-      left: 0;
-      min-width: 150px;
-      z-index: 1000;
-    }
-
-    ul.menu ul li {
-      margin: 0;
-    }
-
-    main {
-      padding: 2rem;
+    .tabs {
+      width: 100%;
       max-width: 800px;
-      margin: auto;
+      margin: 2rem auto 0 auto;
     }
-
-    a {
+    .tab-buttons {
+      display: flex;
+      border-bottom: 2px solid #1976d2;
+      background: #e3eafc;
+    }
+    .tab-buttons button {
+      flex: 1;
+      border: none;
+      background: none;
+      padding: 1rem;
+      font-size: 1rem;
+      cursor: pointer;
       color: #1976d2;
-      text-decoration: none;
+      transition: background 0.2s;
     }
-
-    a:hover {
-      text-decoration: underline;
+    .tab-buttons button.active {
+      background: #1976d2;
+      color: white;
+      font-weight: bold;
     }
-
+    .tab-content {
+      background: white;
+      padding: 2rem;
+      border: 1px solid #ccc;
+      border-top: none;
+      min-height: 200px;
+    }
     footer {
       background-color: #eeeeee;
       text-align: center;
       padding: 1rem;
       border-top: 1px solid #ccc;
       font-size: 0.9rem;
+      margin-top: 2rem;
     }
   </style>
+  <script>
+    function showTab(tabIndex) {
+      const tabs = document.querySelectorAll('.tab-content');
+      const buttons = document.querySelectorAll('.tab-buttons button');
+      tabs.forEach((tab, i) => {
+        tab.style.display = (i === tabIndex) ? 'block' : 'none';
+        buttons[i].classList.toggle('active', i === tabIndex);
+      });
+    }
+    window.onload = function() {
+      showTab(0);
+      document.querySelectorAll('.tab-buttons button').forEach((btn, i) => {
+        btn.onclick = () => showTab(i);
+      });
+    };
+  </script>
 </head>
 <body>
 <header>
   <div class="logo-titulo">
-    <h1>Incorporación del patrimonio natural de la Universidad en la docencia práctica de Zoología (Fase I): Campus de Fuentenueva
-
-</h1>
+    <h1>Incorporación del patrimonio natural de la Universidad en la docencia práctica de Zoología (Fase I): Campus de Fuentenueva</h1>
   </div>
-  <nav>
-    <ul class="menu">
-      <li>#Inicio</a></li>
-      <li>
-        #Secciones</a>
-        <ul>
-          <li>#Láminas</a></li>
-          <li>#Material complementario</a></li>
-          <li>#Actividades</a></li>
-        </ul>
-      </li>
-      <li>#Acerca de</a></li>
-    </ul>
-  </nav>
 </header>
-  <main>
-    <p>Un paseillo por la BIODIVERSIDAD URBANA</p>
-  </main>
-
-  <footer>
-    &copy; 2025 Departamento de Zoología
-  </footer>
+<div class="tabs">
+  <div class="tab-buttons">
+    <button class="active">Láminas</button>
+    <button>Material complementario</button>
+    <button>Actividades</button>
+  </div>
+  <div class="tab-content">
+    <h2>Láminas</h2>
+    <p>Contenido relacionado con las láminas de la biodiversidad urbana.</p>
+  </div>
+  <div class="tab-content" style="display:none;">
+    <h2>Material complementario</h2>
+    <p>Recursos y documentos adicionales para ampliar el aprendizaje.</p>
+  </div>
+  <div class="tab-content" style="display:none;">
+    <h2>Actividades</h2>
+    <p>Propuestas de actividades prácticas y ejercicios para los estudiantes.</p>
+  </div>
+</div>
+<footer>
+  &copy; 2025 Departamento de Zoología
+</footer>
 </body>
 </html>
