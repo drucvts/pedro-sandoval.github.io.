@@ -48,10 +48,6 @@
       color: #1976d2;
       transition: background 0.2s;
     }
-    .tab-buttons button:hover,
-    .subtab-buttons button:hover {
-      background-color: #bbdefb;
-    }
     .tab-buttons button.active {
       background: #1976d2;
       color: white;
@@ -107,31 +103,25 @@
       tabs.forEach((tab, i) => {
         tab.style.display = (i === tabIndex) ? 'block' : 'none';
         buttons[i].classList.toggle('active', i === tabIndex);
-        buttons[i].setAttribute('aria-selected', i === tabIndex ? 'true' : 'false');
       });
+      // Activar subpestaña por defecto si es material complementario
       if (tabIndex === 1) showSubtab(0);
     }
-
     function showSubtab(subtabIndex) {
       const subtabs = document.querySelectorAll('.subtab-content');
       const buttons = document.querySelectorAll('.subtab-buttons button');
       subtabs.forEach((subtab, i) => {
         subtab.classList.toggle('active', i === subtabIndex);
         buttons[i].classList.toggle('active', i === subtabIndex);
-        buttons[i].setAttribute('aria-selected', i === subtabIndex ? 'true' : 'false');
       });
     }
-
     window.onload = function() {
       showTab(0);
       document.querySelectorAll('.tab-buttons button').forEach((btn, i) => {
-        btn.setAttribute('role', 'tab');
-        btn.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
         btn.onclick = () => showTab(i);
       });
+      // Subtab listeners
       document.querySelectorAll('.subtab-buttons button').forEach((btn, i) => {
-        btn.setAttribute('role', 'tab');
-        btn.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
         btn.onclick = () => showSubtab(i);
       });
     };
@@ -145,54 +135,67 @@
 </header>
 <div class="tabs">
   <div class="tab-buttons">
-    <button class="active" role="tab" aria-selected="true">Láminas</button>
-    <button role="tab" aria-selected="false">Material complementario</button>
-    <button role="tab" aria-selected="false">Actividades</button>
+    <button class="active">Láminas</button>
+    <button>Material complementario</button>
+    <button>Actividades</button>
   </div>
-
   <div class="tab-content">
     <h2>Láminas</h2>
     <ul>
-      <li>https://drive.google.com/file/d/1AeJy90xfshk1XoX-15aoRiBwzr9qwYMH/view?usp=drive_linkIntroducción</a></li>
-      <li>https://drive.google.com/file/d/145PhwfHp2WbZFPXxee_AmFaA-vh2D0Q-/view?usp=drive_linkDiversidad de aves</a></li>
-      <li>https://drive.google.com/file/d/1MXdRev2WLtVR6CfQZdO3s_vxvVrU5mXp/view?usp=drive_linkPolinizadores</a></li>
-      <li>https://drive.google.com/file/d/120NgK7_72R2pM_2YuC1wM3KRd-e8I9Q3/view?usp=drive_linkFauna nocturna</a></li>
-      <li>https://drive.google.com/file/d/1P1TdWW9HlMlwEhxB_cMfqW9m3Yo3dXmC/view?usp=drive_linkFauna doméstica</a></li>
-      <li>https://drive.google.com/file/d/1ed3NeLIP82iprujDXs1gNbM-HNjaQv7Y/view?usp=drive_linkEspecies invasoras</a></li>
-      <li>https://drive.google.com/file/d/1-xOcqlQwEcda0-iSqWNoS2B2D32_py99/view?usp=drive_linkControl biológico</a></li>
-      <li>https://drive.google.com/file/d/1aLuMC9Us203ifP4Ot9SGveGPAFwOzU-O/view?usp=drive_linkCajas nido</a></li>
+      <li>
+        <a href="https://drive.google.com/file/d/1AeJy90xfshk1XoX-15aoRiBwzr9qwYMH/view?usp=drive_link" target="_blank">Introducción</a>
+      </li>
+      <li>
+        <a href="https://drive.google.com/file/d/145PhwfHp2WbZFPXxee_AmFaA-vh2D0Q-/view?usp=drive_link" target="_blank">Diversidad de aves</a>
+      </li>
+      <li>
+        <a href="https://drive.google.com/file/d/1MXdRev2WLtVR6CfQZdO3s_vxvVrU5mXp/view?usp=drive_link" target="_blank">Polinizadores</a>
+      </li>
+      <li>
+        <a href="https://drive.google.com/file/d/120NgK7_72R2pM_2YuC1wM3KRd-e8I9Q3/view?usp=drive_link" target="_blank">Fauna nocturna</a>
+      </li>
+      <li>
+        <a href="https://drive.google.com/file/d/1P1TdWW9HlMlwEhxB_cMfqW9m3Yo3dXmC/view?usp=drive_link" target="_blank">Fauna doméstica</a>
+      </li>
+      <li>
+        <a href="https://drive.google.com/file/d/1ed3NeLIP82iprujDXs1gNbM-HNjaQv7Y/view?usp=drive_link" target="_blank">Especies invasoras</a>
+      </li>
+      <li>
+        <a href="https://drive.google.com/file/d/1-xOcqlQwEcda0-iSqWNoS2B2D32_py99/view?usp=drive_link" target="_blank">Control biológico</a>
+      </li>
+      <li>
+        <a href="https://drive.google.com/file/d/1aLuMC9Us203ifP4Ot9SGveGPAFwOzU-O/view?usp=drive_link" target="_blank">Cajas nido</a>
+      </li>
     </ul>
   </div>
-
   <div class="tab-content" style="display:none;">
     <h2>Material complementario</h2>
     <div class="subtab-buttons">
-      <button class="active" role="tab" aria-selected="true">Documentos</button>
-      <button role="tab" aria-selected="false">Videos</button>
+      <button class="active">Documentos</button>
+      <button>Videos</button>
     </div>
     <div class="subtab-content active">
       <ul>
-        <li>https://drive.google.com/file/d/1E3J6ZYipKw6EQu_OsZ62vMhRSJdARlXf/view?usp=drive_linkPolinizadores: abejas y abejorros</a></li>
-        <li>https://drive.google.com/file/d/1w2gkmaOCbfkSPjTFu2pf97JSaF_oMc7y/view?usp=drive_linkPolinizadores: avispas</a></li>
-        <li>https://drive.google.com/file/d/1dwJYBhq3elisbFGZUxjoDx9LD_NshkTk/view?usp=drive_linkPolinizadores: dípteros</a></li>
-        <li>https://drive.google.com/file/d/1oWdzR-tm1tmlXsIOLzp_8IOs5LcHa553/view?usp=drive_linkPolinizadores: escarabajos</a></li>
-        <li>https://drive.google.com/file/d/1X_NOogPw1Ifil3oTIPX5RM3EYAe74Rm7/view?usp=drive_linkPolinizadores: mariposas</a></li>
+        <li><a href="https://drive.google.com/file/d/1E3J6ZYipKw6EQu_OsZ62vMhRSJdARlXf/view?usp=drive_link" target="_blank">Polinizadores: abejas y abejorros</a></li>
+        <li><a href="https://drive.google.com/file/d/1w2gkmaOCbfkSPjTFu2pf97JSaF_oMc7y/view?usp=drive_link" target="_blank">Polinizadores: avispas</a></li>
+        <li><a href="https://drive.google.com/file/d/1dwJYBhq3elisbFGZUxjoDx9LD_NshkTk/view?usp=drive_link" target="_blank">Polinizadores: dípteros</a></li>
+        <li><a href="https://drive.google.com/file/d/1oWdzR-tm1tmlXsIOLzp_8IOs5LcHa553/view?usp=drive_link" target="_blank">Polinizadores: escarabajos</a></li>
+        <li><a href="https://drive.google.com/file/d/1X_NOogPw1Ifil3oTIPX5RM3EYAe74Rm7/view?usp=drive_link" target="_blank">Polinizadores: mariposas</a></li>
       </ul>
     </div>
     <div class="subtab-content">
       <ul>
-        <li>https://drive.google.com/file/d/13w3daIq3QtIliEtwbSe_Tfg6uBYDDjWq/view?usp=drive_webAbeja</a></li>
-        <li>https://drive.google.com/file/d/1BFrUM-NCpf7BBzBBa8t97UQXl8bmj9Jn/view?usp=drive_webAbejorro carpintero</a></li>
-        <li>https://drive.google.com/file/d/1dfe43IG2ExcGBOqNSl4qvgtyWCj6gMec/view?usp=drive_web</li>
-        <li>https://drive.google.com/file/d/1_bULi9gPfkGgMtNm5dvNqTDdSh6Q-88j/view?usp=drive_webDíptero</a></li>
-        <li>https://drive.google.com/file/d/1nrdlqfBUtbXxWQZsP71oB-oipKFc5Q8u/view?usp=drive_web</li>
-        <li>https://drive.google.com/file/d/1Cy7Io7Cripd5U_8HybX1R7jhBljJkd5m/view?usp=drive_webSírfido</a></li>
-        <li>https://birdnet.cornell.edu/</li>
-        <li>https://merlin.allaboutbirds.org/download/Merlin Bird ID</a></li>
+        <li><a href="https://drive.google.com/file/d/13w3daIq3QtIliEtwbSe_Tfg6uBYDDjWq/view?usp=drive_web" target="_blank">Abeja</a></li>
+        <li><a href="https://drive.google.com/file/d/1BFrUM-NCpf7BBzBBa8t97UQXl8bmj9Jn/view?usp=drive_web" target="_blank">Abejorro carpintero</a></li>
+        <li><a href="https://drive.google.com/file/d/1dfe43IG2ExcGBOqNSl4qvgtyWCj6gMec/view?usp=drive_web" target="_blank">Coleóptero</a></li>
+        <li><a href="https://drive.google.com/file/d/1_bULi9gPfkGgMtNm5dvNqTDdSh6Q-88j/view?usp=drive_web" target="_blank">Díptero</a></li>
+        <li><a href="https://drive.google.com/file/d/1nrdlqfBUtbXxWQZsP71oB-oipKFc5Q8u/view?usp=drive_web" target="_blank">Sin título</a></li>
+        <li><a href="https://drive.google.com/file/d/1Cy7Io7Cripd5U_8HybX1R7jhBljJkd5m/view?usp=drive_web" target="_blank">Sírfido</a></li>
+        <li><a href="https://birdnet.cornell.edu/" target="_blank">BirdNET Sound ID</a></li>
+        <li><a href="https://merlin.allaboutbirds.org/download/" target="_blank">Merlin Bird ID</a></li>
       </ul>
     </div>
   </div>
-
   <div class="tab-content" style="display:none;">
     <h2>Actividades</h2>
     <p>Propuestas de actividades prácticas y ejercicios para los estudiantes.</p>
