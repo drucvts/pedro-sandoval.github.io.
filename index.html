@@ -60,6 +60,33 @@
       border-top: none;
       min-height: 200px;
     }
+    .subtab-buttons {
+      display: flex;
+      border-bottom: 1px solid #1976d2;
+      margin-bottom: 1rem;
+      background: #f5faff;
+    }
+    .subtab-buttons button {
+      flex: 1;
+      border: none;
+      background: none;
+      padding: 0.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+      color: #1976d2;
+      transition: background 0.2s;
+    }
+    .subtab-buttons button.active {
+      background: #1976d2;
+      color: white;
+      font-weight: bold;
+    }
+    .subtab-content {
+      display: none;
+    }
+    .subtab-content.active {
+      display: block;
+    }
     footer {
       background-color: #eeeeee;
       text-align: center;
@@ -77,11 +104,25 @@
         tab.style.display = (i === tabIndex) ? 'block' : 'none';
         buttons[i].classList.toggle('active', i === tabIndex);
       });
+      // Activar subpestaña por defecto si es material complementario
+      if (tabIndex === 1) showSubtab(0);
+    }
+    function showSubtab(subtabIndex) {
+      const subtabs = document.querySelectorAll('.subtab-content');
+      const buttons = document.querySelectorAll('.subtab-buttons button');
+      subtabs.forEach((subtab, i) => {
+        subtab.classList.toggle('active', i === subtabIndex);
+        buttons[i].classList.toggle('active', i === subtabIndex);
+      });
     }
     window.onload = function() {
       showTab(0);
       document.querySelectorAll('.tab-buttons button').forEach((btn, i) => {
         btn.onclick = () => showTab(i);
+      });
+      // Subtab listeners
+      document.querySelectorAll('.subtab-buttons button').forEach((btn, i) => {
+        btn.onclick = () => showSubtab(i);
       });
     };
   </script>
@@ -129,7 +170,31 @@
   </div>
   <div class="tab-content" style="display:none;">
     <h2>Material complementario</h2>
-    <p>Recursos y documentos adicionales para ampliar el aprendizaje.</p>
+    <div class="subtab-buttons">
+      <button class="active">Documentos</button>
+      <button>Videos</button>
+    </div>
+    <div class="subtab-content active">
+      <ul>
+        <li><a href="https://drive.google.com/file/d/1E3J6ZYipKw6EQu_OsZ62vMhRSJdARlXf/view?usp=drive_link" target="_blank">Polinizadores: abejas y abejorros</a></li>
+        <li><a href="https://drive.google.com/file/d/1w2gkmaOCbfkSPjTFu2pf97JSaF_oMc7y/view?usp=drive_link" target="_blank">Polinizadores: avispas</a></li>
+        <li><a href="https://drive.google.com/file/d/1dwJYBhq3elisbFGZUxjoDx9LD_NshkTk/view?usp=drive_link" target="_blank">Polinizadores: dípteros</a></li>
+        <li><a href="https://drive.google.com/file/d/1oWdzR-tm1tmlXsIOLzp_8IOs5LcHa553/view?usp=drive_link" target="_blank">Polinizadores: escarabajos</a></li>
+        <li><a href="https://drive.google.com/file/d/1X_NOogPw1Ifil3oTIPX5RM3EYAe74Rm7/view?usp=drive_link" target="_blank">Polinizadores: mariposas</a></li>
+      </ul>
+    </div>
+    <div class="subtab-content">
+      <ul>
+        <li><a href="https://drive.google.com/file/d/13w3daIq3QtIliEtwbSe_Tfg6uBYDDjWq/view?usp=drive_web" target="_blank">Abeja</a></li>
+        <li><a href="https://drive.google.com/file/d/1BFrUM-NCpf7BBzBBa8t97UQXl8bmj9Jn/view?usp=drive_web" target="_blank">Abejorro carpintero</a></li>
+        <li><a href="https://drive.google.com/file/d/1dfe43IG2ExcGBOqNSl4qvgtyWCj6gMec/view?usp=drive_web" target="_blank">Coleóptero</a></li>
+        <li><a href="https://drive.google.com/file/d/1_bULi9gPfkGgMtNm5dvNqTDdSh6Q-88j/view?usp=drive_web" target="_blank">Díptero</a></li>
+        <li><a href="https://drive.google.com/file/d/1nrdlqfBUtbXxWQZsP71oB-oipKFc5Q8u/view?usp=drive_web" target="_blank">Sin título</a></li>
+        <li><a href="https://drive.google.com/file/d/1Cy7Io7Cripd5U_8HybX1R7jhBljJkd5m/view?usp=drive_web" target="_blank">Sírfido</a></li>
+        <li><a href="https://birdnet.cornell.edu/" target="_blank">BirdNET Sound ID</a></li>
+        <li><a href="https://merlin.allaboutbirds.org/download/" target="_blank">Merlin Bird ID</a></li>
+      </ul>
+    </div>
   </div>
   <div class="tab-content" style="display:none;">
     <h2>Actividades</h2>
