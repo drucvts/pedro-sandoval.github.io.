@@ -96,6 +96,35 @@
       font-size: 0.9rem;
       margin-top: 0rem;
     }
+    @media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  header h1 {
+    font-size: 1.1rem;
+  }
+
+  .tabs {
+    width: 95%;
+    margin: 1rem auto;
+  }
+
+  .tab-buttons button,
+  .subtab-buttons button {
+    font-size: 0.9rem;
+    padding: 0.7rem;
+  }
+
+  img {
+    height: 50px;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+}
   </style>
   <script>
     function showTab(tabIndex) {
@@ -141,13 +170,18 @@
 <p style="text-align: center;">Este proyecto se centrará en utilizar los recursos didácticos que ofrece parte del patrimonio de la Universidad de Granada, en concreto sus campus universitarios, para la mejora y refuerzo del proceso de enseñanza-aprendizaje de múltiples asignaturas del Departamento de Zoología, con especial atención a la diversidad zoológica y problemas de conservación.</p>
  <div class="tabs">
  <div class="tabs">
- <div class="tabs"></div>
- </div>
- </div> <div class="tab-buttons">
+ 
+<div class="tabs">
+  <div class="tab-buttons">
     <button class="active">Láminas</button>
     <button>Material complementario</button>
     <button>Actividades</button>
   </div>
+  <div class="tab-content">Contenido de Láminas</div>
+  <div class="tab-content">Contenido de Material complementario</div>
+  <div class="tab-content">Contenido de Actividades</div>
+</div>
+
   <div class="tab-content">
     <h2>Enlaces a las láminas de los tótems</h2>
     <ul>
