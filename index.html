@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyecto de Innovación</title>
+</head>
+  <style>
+    body {
+      padding-top: 130px; /* ajusta según la altura del header */
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+    }  
+    header {
+    background-color: #3e7cb9;
+    padding: 0.5rem; 2rem;
+    display: flex;
+    flex-direction: row; /* asegura que los elementos estén en fila */
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #1565c0;
+    color: white;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    }
+    .logo-titulo {
+  flex: 1;
+  }
+  .logo-titulo h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  }
+   .logo-derecha img {
+    height: 50px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    transition: transform 0.3s ease, filter 0.3s ease;
+  }
+    .logo-derecha img:hover {
+    transform: scale(1.1); /* agranda ligeramente el logo */
+    filter: brightness(0.8) invert(1); /* cambia ligeramente el brillo */
+    cursor: pointer;
+  }
+    nav {
+      margin-left: auto;
+    }
+    .tabs {
+      width: 80%;
+      margin: 2rem auto 0 auto;
+    }
+    .tab-buttons {
+      display: flex;
+      border-bottom: 2px solid #3e7cb9;
+      background: #e3eafc;
+    }
+    .tab-buttons button {
+      flex: 1;
+      border: none;
+      background: none;
+      padding: 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+      color: #9cbddf;
+      transition: background 0.2s;
+    }
+    .tab-buttons button.active {
+      background: #3e7cb9;
+      color: white;
+      font-weight: bold;
+    }
+    .tab-content {
+      background: white;
+      padding: 2rem;
+      border: 1px solid #ccc;
+      border-top: none;
+      min-height: 200px;
+    }
+    .subtab-buttons {
+      display: flex;
+      border-bottom: 1px solid #3e7cb9;
+      margin-bottom: 1rem;
+      background: #f5faff;
+    }
+    .subtab-buttons button {
+      flex: 1;
+      border: none;
+      background: none;
+      padding: 0.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+      color: #3e7cb9;
+      transition: background 0.2s;
+    }
+    .subtab-buttons button.active {
+      background: #3e7cb9;
+      color: white;
+      font-weight: bold;
+    }
+    .subtab-content {
+      display: none;
+    }
+    .subtab-content.active {
+      display: block;
+    }
+    
+    .contenedor-footer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #cddfe3;
+  border-top: 1px solid #ccc;
+  font-size: 0.9rem;
+}
+
+.logo-footer img {
+  height: 40px; /* ajusta según el tamaño del logo */
+}
+
+    header {
+      flex-direction: column;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 1rem;
+    }
+    .tabs {
+      width: 95%;
+      margin: 1rem auto;
+    }
+  .tab-buttons button,
+  .subtab-buttons button {
+    font-size: 0.9rem;
+    padding: 0.7rem;
+    }
+  img {
+    height: 50px;
+  }
+  p {
+    font-size: 1rem;
+  }
+    @media (max-width: 768px)
+  </style>
+  <script>
+    function showTab(tabIndex) {
+      const tabs = document.querySelectorAll('.tab-content');
+      const buttons = document.querySelectorAll('.tab-buttons button');
+      tabs.forEach((tab, i) => {
+        tab.style.display = (i === tabIndex) ? 'block' : 'none';
+        buttons[i].classList.toggle('active', i === tabIndex);
+      });
+      // Activar subpestaña por defecto si es material complementario
+      if (tabIndex === 1) showSubtab(0);
+    }
+    function showSubtab(subtabIndex) {
+      const subtabs = document.querySelectorAll('.subtab-content');
+      const buttons = document.querySelectorAll('.subtab-buttons button');
+      subtabs.forEach((subtab, i) => {
+        subtab.classList.toggle('active', i === subtabIndex);
+        buttons[i].classList.toggle('active', i === subtabIndex);
+      });
+    }
+    window.onload = function() {
+      showTab(0);
+      document.querySelectorAll('.tab-buttons button').forEach((btn, i) => {
+        btn.onclick = () => showTab(i);
+      });
+      // Subtab listeners
+      document.querySelectorAll('.subtab-buttons button').forEach((btn, i) => {
+        btn.onclick = () => showSubtab(i);
+      });
+    };
+  </script>
+</head>
+estilos.css
+<body>
+  <header>
+  <div class="logo-titulo">
+    <h1>Patrimonio natural de la Universidad de Granada</h1>
+  </div>
+  <div class="logo-derecha">
+  <img src="logo.png">
+  </div>
+
+</header>
+<p style="text-align: center; font-weight: bold; font-size: 20px;">Incorporación del patrimonio natural de la Universidad en la docencia práctica de Zoología (Fase I): Campus de Fuentenueva</p>
+<div class="tabs">
+<p style="text-align: center;">Este proyecto se centrará en utilizar los recursos didácticos que ofrece parte del patrimonio de la Universidad de Granada, en concreto sus campus universitarios, para la mejora y refuerzo del proceso de enseñanza-aprendizaje de múltiples asignaturas del Departamento de Zoología, con especial atención a la diversidad zoológica y problemas de conservación.</p>
+ <div class="tabs">
+ <div class="tabs">
+ <div class="tabs"></div>
+ </div>
+ </div> <div class="tab-buttons">
+    <button class="active">Láminas</button>
+    <button>Material complementario</button>
+    <button>Actividades</button>
+  </div>
+  <div class="tab-content">
+    <h2>Enlaces a las láminas de los tótems</h2>
+    <ul>
+      <li>
+        <a href="https://drive.google.com/file/d/1AeJy90xfshk1XoX-15aoRiBwzr9qwYMH/view?usp=drive_link" target="_blank">Introducción</a>
+      </li>
+      <li>
+        <a href="https://drive.google.com/file/d/145PhwfHp2WbZFPXxee_AmFaA-vh2D0Q-/view?usp=drive_link" target="_blank">Diversidad de aves</a>
+      </li>
+      <li>
+        <a href="https://drive.google.com/file/d/1MXdRev2WLtVR6CfQZdO3s_vxvVrU5mXp/view?usp=drive_link" target="_blank">Polinizadores</a>
+      </li>
+      <li>
+        <a href="https://drive.google.com/file/d/120NgK7_72R2pM_2YuC1wM3KRd-e8I9Q3/view?usp=drive_link" target="_blank">Fauna nocturna</a>
+      </li>
+      <li>
+        <a href="https://drive.google.com/file/d/10nXQMoNp9eDnQuD_eSJq-GtMIoCed3ax/view?usp=drive_link"_blank">Fauna doméstica</a>
+      </li>
+      <li>
+        <a href="https://drive.google.com/file/d/1ed3NeLIP82iprujDXs1gNbM-HNjaQv7Y/view?usp=drive_link" target="_blank">Especies invasoras</a>
+      </li>
+      <li>
+        <a href="https://drive.google.com/file/d/1UOGIGpQSjqGPt1Y05EWyPyfyJba8KPXr/view?usp=drive_link" target="_blank">Control biológico</a>
+      </li>
+      <li>
+        <a href="https://drive.google.com/file/d/1juZBSidYOEWS_iNHVUJ9TL3LtCwP23b-/view?usp=drive_link"_blank">Cajas nido</a>
+      </li>
+    </ul>
+  </div>
+  <div class="tab-content" style="display:none;">
+    <div class="subtab-buttons">
+      <button class="active">Documentos</button>
+      <button>Videos</button>
+    </div>
+    <div class="subtab-content active">
+      <ul>
+        <li><a href="https://drive.google.com/file/d/1E3J6ZYipKw6EQu_OsZ62vMhRSJdARlXf/view?usp=drive_link" target="_blank">Polinizadores: abejas y abejorros</a></li>
+        <li><a href="https://drive.google.com/file/d/1w2gkmaOCbfkSPjTFu2pf97JSaF_oMc7y/view?usp=drive_link" target="_blank">Polinizadores: avispas</a></li>
+        <li><a href="https://drive.google.com/file/d/1dwJYBhq3elisbFGZUxjoDx9LD_NshkTk/view?usp=drive_link" target="_blank">Polinizadores: dípteros</a></li>
+        <li><a href="https://drive.google.com/file/d/1oWdzR-tm1tmlXsIOLzp_8IOs5LcHa553/view?usp=drive_link" target="_blank">Polinizadores: escarabajos</a></li>
+        <li><a href="https://drive.google.com/file/d/1X_NOogPw1Ifil3oTIPX5RM3EYAe74Rm7/view?usp=drive_link" target="_blank">Polinizadores: mariposas</a></li>
+        <li><a href="https://www.miteco.gob.es/es/biodiversidad/temas/conservacion-de-especies/especies-exoticas-invasoras/ce-eei-catalogo.html" target="_blank">Catálogo especies invesoras</a></li>
+        <li><a href="https://gd.eppo.int/taxon/RHYCFE/datasheet" target="_blank">Picudo rojo</a></li>
+      </ul>
+    </div>
+    <div class="subtab-content">
+      <ul>
+        <li><a href="https://drive.google.com/file/d/13w3daIq3QtIliEtwbSe_Tfg6uBYDDjWq/view?usp=drive_web" target="_blank">Abeja</a></li>
+        <li><a href="https://drive.google.com/file/d/1BFrUM-NCpf7BBzBBa8t97UQXl8bmj9Jn/view?usp=drive_web" target="_blank">Abejorro carpintero</a></li>
+        <li><a href="https://drive.google.com/file/d/1dfe43IG2ExcGBOqNSl4qvgtyWCj6gMec/view?usp=drive_web" target="_blank">Coleóptero</a></li>
+        <li><a href="https://drive.google.com/file/d/1_bULi9gPfkGgMtNm5dvNqTDdSh6Q-88j/view?usp=drive_web" target="_blank">Díptero</a></li>
+        <li><a href="https://drive.google.com/file/d/1nrdlqfBUtbXxWQZsP71oB-oipKFc5Q8u/view?usp=drive_web" target="_blank">Mariposa</a></li>
+        <li><a href="https://drive.google.com/file/d/1Cy7Io7Cripd5U_8HybX1R7jhBljJkd5m/view?usp=drive_web" target="_blank">Sírfido</a></li>
+        <li><a href="https://birdnet.cornell.edu/" target="_blank">BirdNET Sound ID</a></li>
+        <li><a href="https://merlin.allaboutbirds.org/download/" target="_blank">Merlin Bird ID</a></li>
+        <li><a href="https://youtu.be/21paiBknj_o?si=e-50C44rsgoGBvOd" target="_blank">Construcción de nido</a></li>
+        <li><a href="https://seo.org/camaras/?gad_source=1&gclid=Cj0KCQjw782_BhDjARIsABTv_JBBpOP5bh0JFxiMq5sZcjizvE6ggSQDJTbPAWIQFWpyTRpStH7O4JAaAjVDEALw_wcB" target="_blank">Cámaras SEO/Birdlife</a></li>
+        <li><a href="https://www.youtube.com/watch?v=StSO7LSzzAw" target="_blank">Control Biológico</a></li>
+        <li><a href="https://www.canto-pajaros.es/cotorra-argentina/" target="_blank">Canto cotorra argentina</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="tab-content" style="display:none;">
+    <p>Propuestas de actividades prácticas y ejercicios para los estudiantes.</p>
+  </div>
+</div>
+<div class="tabs">
+
+<p style="text-align: center;">Proyecto financiado mediante PID 24-152</p>
+ <div class="tabs">
+ <div class="tabs">
+ <div class="tabs"></div>
+ </div>
+<footer>
+   
+<div class="contenedor-footer">
+    <div class="info-footer">
+
+        <p>&copy; <strong>2025 Departamento de Zoología</strong> </p>
+        <p><strong>Contacto</strong> <a href="mailto:zoologia@ugr.es">zoologia@ugr.es</a></p>
+ 
+</div>
+    <div class="logo-footer">
+      <img src="logociencias.png">
+    </div>
+</footer>
+</body>
+</html>
+
