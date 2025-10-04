@@ -9,27 +9,47 @@
     body {
       padding-top: 130px; /* ajusta según la altura del header */
       margin: 0;
+      padding: 0;
+      overflow-x: hidden;
       font-family: 'Segoe UI', sans-serif;
       background-color: #f5f5f5;
       color: #333;
       line-height: 1.6;
     }  
     header {
-      background-color: #3e7cb9;
-      padding: 0.5rem 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid #1565c0;
-      color: white;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
+    background-color: #3e7cb9;
+    padding: 0.5rem; 2rem;
+    display: flex;
+    flex-direction: row; /* asegura que los elementos estén en fila */
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #1565c0;
+    color: white;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
     }
-    header h1 {
-      margin: 1;
-      font-size: 2rem;
-    }
+    .logo-titulo {
+  flex: 1;
+  }
+  .logo-titulo h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  }
+   .logo-derecha img {
+    height: 50px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    transition: transform 0.3s ease, filter 0.3s ease;
+  }
+    .logo-derecha img:hover {
+    transform: scale(1.1); /* agranda ligeramente el logo */
+    filter: brightness(0.8) invert(1); /* cambia ligeramente el brillo */
+    cursor: pointer;
+  }
     nav {
       margin-left: auto;
     }
@@ -91,15 +111,23 @@
     .subtab-content.active {
       display: block;
     }
-    footer {
-      width: 100%;
-      background-color: #d2dce0;
-      text-align: center;
-      padding: 0.1rem;
-      border-top: 1px solid #ccc;
-      font-size: 0.9rem;
-      margin-top: 0rem;
-    }
+    
+    .contenedor-footer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #cddfe3;
+  border-top: 1px solid #ccc;
+  font-size: 0.9rem;
+}
+
+.logo-footer img {
+  height: 40px; /* ajusta según el tamaño del logo */
+}
+
     header {
       flex-direction: column;
       text-align: center;
@@ -155,11 +183,16 @@
     };
   </script>
 </head>
+estilos.css
 <body>
-<header>
+  <header>
   <div class="logo-titulo">
-     <h1 style="text-align: left;font-size: 28px;">Patrimonio natural de la Universidad de Granada</h1>
+    <h1>Patrimonio natural de la Universidad de Granada</h1>
   </div>
+  <div class="logo-derecha">
+  <img src="logo.png">
+  </div>
+
 </header>
 <p style="text-align: center; font-weight: bold; font-size: 20px;">Incorporación del patrimonio natural de la Universidad en la docencia práctica de Zoología (Fase I): Campus de Fuentenueva</p>
 <div class="tabs">
@@ -247,10 +280,17 @@
  <div class="tabs"></div>
  </div>
 <footer>
-   <div class="footer-content">
+   
+<div class="contenedor-footer">
+    <div class="info-footer">
+
         <p>&copy; <strong>2025 Departamento de Zoología</strong> </p>
         <p><strong>Contacto</strong> <a href="mailto:zoologia@ugr.es">zoologia@ugr.es</a></p>
-      
+ 
+</div>
+    <div class="logo-footer">
+      <img src="logociencias.png">
+    </div>
 </footer>
 </body>
 </html>
